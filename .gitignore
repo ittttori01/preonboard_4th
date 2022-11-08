@@ -4,4 +4,4 @@ db/schema.sql
 .DS_Store
 .vscode
 .env.test
-./config.json
+.config.json
