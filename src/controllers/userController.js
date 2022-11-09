@@ -1,4 +1,3 @@
-
 const userService = require("../services/userService");
 
 /**
@@ -17,6 +16,13 @@ const signUp = async(req,res) => {
     res.status(200).send("저장되었습니다.");
 }
 
+
+/**
+ *  @사용자_로그인
+ *  @route POST /user/login
+ *  @access public
+ *  @err
+ */
 const logIn = async(req,res) => {
 
     const {email,password} = req.body;
