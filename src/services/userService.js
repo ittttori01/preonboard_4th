@@ -1,6 +1,7 @@
 const userDao = require("../dao/userDao");
 const Error = require("../middlewares/errorConstructor");
 const userInfoValidate = require("../utils/userInfoValidate");
+const { v4 : uuid } = require('uuid');
 
 const signUp = async (name,email,phone,password) => {
     
@@ -19,9 +20,11 @@ const signUp = async (name,email,phone,password) => {
         throw new Error("비밀번호는 필수 입력 항목입니다. ", 400);
     }
 
+    const user_id =  uuid();
+
     const passwordInfo = await userInfoValidate.signUpValidate(email,password);
-    
-    await userDao.signUp(name,email,phone,passwordInfo.salt,passwordInfo.hashPassword);
+
+    await userDao.signUp(name,email,phone,user_id,passwordInfo.salt,passwordInfo.hashPassword);
 
     return true;
 }

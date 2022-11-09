@@ -7,6 +7,7 @@ const secretTokenKey = config.secretTokenKey;
 
 const signUpValidate = async (email,password) => {
    
+    console.log(email,password)
     const emailExist = await userDao.checkEmail(email);
  
     if(emailExist) {
@@ -21,13 +22,14 @@ const signUpValidate = async (email,password) => {
         throw new Error("이메일 형식이 올바르지 않습니다.", 400);
 
     }
+    const salt = await crypto.randomBytes(128).toString('base64');
+    const hashPassword = await crypto.createHash('sha512').update(password + salt).digest('hex')
 
     const passwordInfo = {
-        salt : await crypto.randomBytes(128).toString('base64'),
-        hashPassword : await crypto.createHash('sha512').update(password + salt).digest('hex')
+        salt : salt,
+        hashPassword : hashPassword
     }
 
-    
     return passwordInfo ;
 }
 
