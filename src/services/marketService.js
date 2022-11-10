@@ -12,8 +12,10 @@ const registerMarket = async(user_id,tax_num,market_name,return_address) => {
 
         throw new Error("반송 주소는 필수 입력 항목입니다. ", 400);
     }
+    
+    const user = await marketDao.getObjectId(user_id);
 
-    await  marketDao.registerMarket(user_id,tax_num,market_name,return_address);
+    await  marketDao.registerMarket(user,user_id,tax_num,market_name,return_address);
 
 }
 

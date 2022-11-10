@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true 
     },
+    markets : [{type : mongoose.Schema.Types.ObjectId, ref: "market"}],
     register_date : {
         type : Date,
         required : true,

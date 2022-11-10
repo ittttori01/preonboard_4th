@@ -1,9 +1,18 @@
 const Market = require("../models/Market");
+const User = require("../models/User");
 const Error = require("../middlewares/errorConstructor")
 
-const registerMarket = async(user_id,tax_num,market_name,return_address) => {
+const getObjectId = async(user_id) => {
+
+    const objectId =(await User.findOne({user_id : user_id}))._id
+    
+    return objectId;
+}
+
+const registerMarket = async(user,user_id,tax_num,market_name,return_address) => {
 
     let market = new Market({
+        user,
         user_id,
         tax_num,
         market_name,
@@ -11,6 +20,7 @@ const registerMarket = async(user_id,tax_num,market_name,return_address) => {
 
     })
 
+    market.user = user;
     market.user_id = user_id;
     market.tax_num = tax_num;
     market.market_name = market_name;
@@ -22,5 +32,6 @@ const registerMarket = async(user_id,tax_num,market_name,return_address) => {
 }
 
 module.exports = {
+    getObjectId,
     registerMarket,
 }
