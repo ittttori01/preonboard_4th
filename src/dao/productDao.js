@@ -54,12 +54,6 @@ const registerProduct = async(market,sku,title,description,category_num,country,
 
 const getProduct = async(product_id) => {
     
-    // await Product.findOne({_id:product_id}).populate("market").exec((err,data)=> {
-    //     if (err) throw new Error ("d에러");
-        
-    //     return data;
-    // })
-
     const data = await Product.findOne({_id:product_id}).populate("market");
 
     return data; 
@@ -103,7 +97,6 @@ const updateProduct = async(product_id,sku,title,description,category_num,countr
             return true;
         })
 
-    // return true;
 }
 
 module.exports = {

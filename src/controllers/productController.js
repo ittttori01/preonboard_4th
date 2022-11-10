@@ -39,14 +39,12 @@ const registerProduct = async(req,res) => {
     
 }
 
-
 /**
  *  @상품_삭제
  *  @route DELETE /product/delete
  *  @access public
  *  @err
  */
-
 const deleteProduct = async(req,res) => {
 
     const {product_id} = req.body;
@@ -63,7 +61,6 @@ const deleteProduct = async(req,res) => {
  *  @access public
  *  @err
  */
-
 const updateProduct = async(req,res) => {
 
     const {product_id,sku,title,description,category_num,country,img_url,status,qty,days_to_ship} = req.body;
@@ -74,8 +71,6 @@ const updateProduct = async(req,res) => {
     
 
 }
-
-
 
 module.exports = {
   

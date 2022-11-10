@@ -21,6 +21,7 @@ const marketSchema = new mongoose.Schema({
     market_name : {
         type : String,
         required : true,
+        trim : true
     },
     return_address : {
         type : String,

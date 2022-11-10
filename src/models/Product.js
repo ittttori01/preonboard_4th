@@ -30,9 +30,8 @@ const productSchema = new mongoose.Schema({
         required : true,
     },
     country : {
-        type : Array,
-        required : true,
-        default : {"country" : "Korea"},
+        type : String,
+        required : true
     },
     img_url : {
         type : String,
