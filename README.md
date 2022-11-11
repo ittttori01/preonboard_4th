@@ -23,6 +23,14 @@
 - 프레임워크 자유 (예시 : Express Or Nest.Js)
 - Type ORM 사용 금지 
 
+## 사전 수행 목록
+- config.json 파일생성후 {"secretTokenKey" : "원하는값"} 추가
+
+
 # API Documentation
 
 [API 명세](https://www.notion.so/API-c1f82034a7f3444db74a6c8ae2a3aa5f)
+
+
+# Schema
+<img width="660" alt="스크린샷 2022-11-11 오전 11 22 15" src="https://user-images.githubusercontent.com/64879792/201248645-d497b95f-f4b5-4a1d-8994-80d1690b8352.png">
