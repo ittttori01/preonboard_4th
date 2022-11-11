@@ -1,5 +1,6 @@
 const marketDao = require("../dao/marketDao");
 const Error = require("../middlewares/errorConstructor");
+const marketValidate = require("../utils/marketValidate");
 
 const registerMarket = async(user_id,tax_num,market_name,return_address) => {
 
@@ -16,6 +17,9 @@ const registerMarket = async(user_id,tax_num,market_name,return_address) => {
     //user의 ObjectId가져오기
     const user = await marketDao.getObjectId(user_id);
 
+    //마켓네임 중복 확인
+    await marketValidate.checkMarketName(market_name);
+
     await  marketDao.registerMarket(user,user_id,tax_num,market_name,return_address);
 
 }
@@ -23,7 +27,7 @@ const registerMarket = async(user_id,tax_num,market_name,return_address) => {
 const getMarketProducts = async(market_id,title, country, category) => {
 
     //market의 ObjectId 가져오기
-    const market = await marketDao.getMarketObjectId(market_id);
+    const market = await marketDao.getMarketObjectId(market_id)._id;
 
     const productList = await marketDao.getMarketProducts(market, title, country, category);
 

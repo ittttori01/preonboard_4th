@@ -10,6 +10,15 @@ const getObjectId = async(user_id) => {
     return objectId;
 }
 
+const checkMarketName = async(market_name) => {
+
+    const marketCheck = await Market.findOne({market_name : market_name});
+
+
+    return marketCheck;
+
+}
+
 const registerMarket = async(user,user_id,tax_num,market_name,return_address) => {
 
     let market = new Market({
@@ -62,6 +71,7 @@ const getMarketProducts = async(market, title, country,category) => {
 
 module.exports = {
     getObjectId,
+    checkMarketName,
     registerMarket,
     getMarketObjectId,
     getMarketProducts,
