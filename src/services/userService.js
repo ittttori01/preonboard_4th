@@ -21,7 +21,8 @@ const signUp = async (name,email,phone,password) => {
     }
 
     const user_id =  uuid();
-
+    
+    //password, hashedPassword 발급
     const passwordInfo = await userInfoValidate.signUpValidate(email,password);
 
     await userDao.signUp(name,email,phone,user_id,passwordInfo.salt,passwordInfo.hashPassword);

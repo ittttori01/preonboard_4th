@@ -13,11 +13,25 @@ const registerMarket = async(user_id,tax_num,market_name,return_address) => {
         throw new Error("반송 주소는 필수 입력 항목입니다. ", 400);
     }
 
-    await  marketDao.registerMarket(user_id,tax_num,market_name,return_address);
+    //user의 ObjectId가져오기
+    const user = await marketDao.getObjectId(user_id);
 
+    await  marketDao.registerMarket(user,user_id,tax_num,market_name,return_address);
+
+}
+
+const getMarketProducts = async(market_id,title, country, category) => {
+
+    //market의 ObjectId 가져오기
+    const market = await marketDao.getMarketObjectId(market_id);
+
+    const productList = await marketDao.getMarketProducts(market, title, country, category);
+
+    return productList;
 }
 
 module.exports = {
     
     registerMarket,
+    getMarketProducts,
 }

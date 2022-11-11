@@ -25,7 +25,7 @@ const signUp = async(name,email,phone,user_id,salt,password) => {
       user.user_id = user_id;
       user.salt = salt,
       user.password = password;
-      
+
       await user.save((err) => {
 
           if(err) throw new Error("회원정보 저장 실패",500);

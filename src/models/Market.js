@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const marketSchema = new mongoose.Schema({
+    user: {
+        type : mongoose.Schema.Types.ObjectId, 
+        ref: "user"
+    },
     user_id : {
         type : String,
         required : true,
@@ -17,11 +21,13 @@ const marketSchema = new mongoose.Schema({
     market_name : {
         type : String,
         required : true,
+        trim : true
     },
     return_address : {
         type : String,
         required : true,
     },
+    products : [{type : mongoose.Schema.Types.ObjectId, ref: "product"}],
     register_date : {
         type : Date,
         required : true,

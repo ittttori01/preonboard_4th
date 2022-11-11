@@ -3,15 +3,18 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
     name : {
         type : String,
-        required : true
+        required : true,
+        trim :true
     },
     email : {
         type : String,
         required : true,
+        trim :true
     },
     phone : {
         type : String,
-        required : true
+        required : true,
+        trim :true
     },
     user_id : {
         type : String,
@@ -25,6 +28,7 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true 
     },
+    markets : [{type : mongoose.Schema.Types.ObjectId, ref: "market"}],
     register_date : {
         type : Date,
         required : true,

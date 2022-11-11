@@ -6,8 +6,7 @@ const config = require("../../config.json");
 const secretTokenKey = config.secretTokenKey;
 
 const signUpValidate = async (email,password) => {
-   
-    console.log(email,password)
+
     const emailExist = await userDao.checkEmail(email);
  
     if(emailExist) {
@@ -54,6 +53,7 @@ const logInValidate = async(email,password) => {
 
     const tokenInfo = {
         
+        uuid : userInfo.uuid,
         email : userInfo.email
     };
 
