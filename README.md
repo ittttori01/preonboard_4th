@@ -26,3 +26,7 @@
 # API Documentation
 
 [API 명세](https://www.notion.so/API-c1f82034a7f3444db74a6c8ae2a3aa5f)
+
+
+# Schema
+<img width="660" alt="스크린샷 2022-11-11 오전 11 22 15" src="https://user-images.githubusercontent.com/64879792/201248645-d497b95f-f4b5-4a1d-8994-80d1690b8352.png">
